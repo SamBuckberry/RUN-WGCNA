@@ -1,0 +1,83 @@
+```{r}
+require(knitr)
+opts_knit$set(root.dir = "~/Desktop/Dropbox/PhD/R_Projects/RUN-WGCNA/")
+```
+
+
+RUN-WGCNA
+========================================================
+#Wrapper functions to perform a quick preliminary weighted-gene co-expression network analysis
+
+###Background
+
+###Preliminaries
+First you need to ensure you have all the required R libraries to run these wrapper functions. 
+```{r, eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+biocLite(c("AnnotationDbi", "impute", "GO.db", "preprocessCore"))
+install.packages(pkgs=c("WGCNA", "flashClust", "ggplot2"))
+```
+
+Load the libraries and wrapper scripts
+```{r}
+source("WGCNA_functions.R")
+library(reshape2)
+library(ggplot2)
+```
+
+Load the example data
+```{r, cache=TRUE}
+dat <- read.table(file="exprsExtimates.csv", header=TRUE, row.names=1, sep=",")
+```
+
+###Running a co-expression analysis
+
+First, we need to determine levels of connectivity at different powers
+```{r, cache=TRUE}
+determineSoftPowerWGCNA(data1=dat, outFile="plots/powerPlots.pdf",
+                        propGenes=0.33)
+```
+![](plots/powerPlots.pdf)
+
+Assemble to nework with the chosen power
+```{r, cache=TRUE}
+net <- runWGCNA(data1=dat, propGenes=0.33, softPower=6, signedNetwork=TRUE)
+rm(dat)
+```
+
+Now assemble the network and look at the modules with different dynamic tree cut hights
+```{r, cache=TRUE}
+plotModulesCut(referenceDataset=net, outFile="plots/modClusterPlot.pdf")
+```
+![](plots/modClusterPlot.pdf)
+
+Calculate the eigengenes
+```{r, cache=TRUE}
+e1 <- calculateModuleEigengenes(referenceDataset=net, split=2)
+```
+
+Plot the eigengene expression for each experimental group and co-epxression module
+```{r, cache=TRUE}
+groups <- gsub('.{2}$', '', x=rownames(e1))
+groups <- t(data.frame(strsplit(groups, split=".", fixed=TRUE)))
+colnames(groups) <- c("Oxygen", "Media")
+groups[ ,1] <- gsub('X', '', groups[ ,1])
+rownames(groups) <- NULL
+e1 <- cbind(e1, groups)
+
+melted <- melt(data=e1, id.vars=c("Oxygen", "Media"))
+melted$Oxygen <- gsub(pattern="pc", replacement="", melted$Oxygen)
+melted <- melted[order(as.numeric(melted$Oxygen)), ]
+
+pdf(file="plots/eigengenBoxplots.pdf", width=12)
+q <- qplot(data=melted, y=value, x=Oxygen, facets=Media~variable, 
+           geom=c("boxplot", "point"), ylab="Eignegene expression",
+           colour=Oxygen)
+q + scale_x_discrete(limits=c("1","5","20"))
+dev.off()
+```
+![](plots/eigengenBoxplots.pdf)
+
+
+
+
