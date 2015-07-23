@@ -37,7 +37,7 @@ library(ggplot2)
 
 Load the example data
 ```{r, cache=TRUE}
-dat <- read.table(file="exprsExtimates.csv", header=TRUE, row.names=1, sep=",")
+dat <- read.table(file=unz("exprsExtimates.csv.zip",filename="exprsExtimates.csv"), header=TRUE, row.names=1, sep=",", )
 ```
 
 ### Running a co-expression analysis
@@ -107,7 +107,7 @@ q <- qplot(data=melted, y=value, x=Oxygen, facets=Media~variable,
 q + scale_x_discrete(limits=c("1","5","20"))
 dev.off()
 ```
-![](plots/eigengenBoxplots.pdf)
+![](~/plots/eigengenBoxplots.pdf)
 
 These boxplots show the eigenene 'expression' (y-axis) for each module (defined by colors) in panel columns for varying oxygen concentrations (x-axis) on different growth media (panel rows). We can see for the plastic media, the 'red' module shows notable eigengene expression differences at 1% oxygen which are much more profound than the differences observed for the same oxygen concentration on the matrigel media. This suggests there are differences in the media that induce differences in co-expression in 1% oxygen. 
 
