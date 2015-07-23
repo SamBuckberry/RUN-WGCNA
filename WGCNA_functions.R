@@ -38,8 +38,8 @@ determineSoftPowerWGCNA <- function(data1, outFile, propGenes=1){
         sft <- pickSoftThreshold(t(data1), powerVector=powers, verbose=5)
         
         # Plot the results:
-        pdf(outFile)
-        par(mfrow = c(2,2))
+        png(outFile, width=180, height=125, units="mm", res=150)
+        par(mfrow = c(1,2))
         cex1 <- 0.9
         
         # Scale-free topology fit index as a function of the soft-thresholding power
@@ -121,7 +121,7 @@ plotModulesCut <- function(referenceDataset, outFile, minClusterSize=30){
                 mColorh <- cbind(mColorh, labels2colors(tree$labels))
         }
         
-        pdf(outFile)
+        pdf(outFile, height=10, width=25)
         plotDendroAndColors(referenceDataset[["geneTreeA1"]], mColorh,
                             paste("dpSplt =",0:3), main = "",
                             dendroLabels=FALSE)
