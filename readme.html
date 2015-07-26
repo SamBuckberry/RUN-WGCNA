@@ -281,7 +281,7 @@ melted$variable &lt;- gsub(&quot;ME&quot;, &quot;&quot;, melted$variable)
 
 <p>&hellip;and then plot the data.</p>
 
-<pre><code class="r">png(file=&quot;plots/eigengenBoxplots.png&quot;, width=12)
+<pre><code class="r">png(file=&quot;plots/eigengenBoxplots.png&quot;)
 q &lt;- qplot(data=melted, y=value, x=Oxygen, facets=Media~variable, 
            geom=c(&quot;boxplot&quot;, &quot;point&quot;), ylab=&quot;Eignegene expression&quot;,
            colour=Oxygen)

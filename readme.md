@@ -111,7 +111,7 @@ melted$variable <- gsub("ME", "", melted$variable)
 ...and then plot the data.
 
 ```r
-png(file="plots/eigengenBoxplots.png", width=12)
+png(file="plots/eigengenBoxplots.png")
 q <- qplot(data=melted, y=value, x=Oxygen, facets=Media~variable, 
            geom=c("boxplot", "point"), ylab="Eignegene expression",
            colour=Oxygen)
