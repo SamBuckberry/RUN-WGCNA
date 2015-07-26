@@ -69,7 +69,7 @@ The  functions in this wrapper have many  parameters,  and  in  this  example  m
 ```{r, cache=TRUE, message=FALSE}
 plotModulesCut(referenceDataset=net, outFile="plots/modClusterPlot.pdf")
 ```
-<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/modClusterPlot.pdf" style="width: 800px;"/>
+<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/modClusterPlot.png" style="width: 800px;"/>
 
 Average linkage hierarchical clustering dendrogram of genes based on gene expression topological overlap. Modules of co-expressed genes were assigned colours which are represented in the horizontal bars below the dendrogram. The different rows of bars represent different dynamic tree cut heights. 
 
