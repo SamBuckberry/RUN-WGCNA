@@ -53,7 +53,7 @@ Constructing  a  weighted  gene  network  requires the  choice  of  the  soft th
 ```r
 determineSoftPowerWGCNA(data1=dat, outFile="plots/powerPlots.png", propGenes=.1)
 ```
-<img src="plots/powerPlots.png" alt="Drawing" style="width: 600px;"/>
+<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/powerPlots.png" alt="Drawing" style="width: 600px;"/>
 
 These two plots show the summary network indices (y-axes) as functions of the soft-thresholding power (x-axes). Numbers in the plots indicate the cor- responding soft-thresholding powers. Plots indicate that approximate scale-free topology is attained at a power of 6. Therefore, the we will *weight* the network with a power of 6.
 
@@ -72,19 +72,7 @@ The  functions in this wrapper have many  parameters,  and  in  this  example  m
 ```r
 plotModulesCut(referenceDataset=net, outFile="plots/modClusterPlot.pdf")
 ```
-
-```
-##  ..done.
-##  ..done.
-##  ..done.
-##  ..done.
-```
-
-```
-## quartz_off_screen 
-##                 2
-```
-<img src="plots/modClusterPlot.pdf" style="width: 800px;"/>
+<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/modClusterPlot.png" alt="Drawing" style="width: 600px;"/>
 
 Average linkage hierarchical clustering dendrogram of genes based on gene expression topological overlap. Modules of co-expressed genes were assigned colours which are represented in the horizontal bars below the dendrogram. The different rows of bars represent different dynamic tree cut heights. 
 
@@ -130,7 +118,7 @@ q <- qplot(data=melted, y=value, x=Oxygen, facets=Media~variable,
 q + scale_x_discrete(limits=c("1","5","20"))
 dev.off()
 ```
-![](plots/eigengenBoxplots.pdf)
+![](https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/eigengenBoxplots.pdf)
 
 These boxplots show the eigenene 'expression' (y-axis) for each module (defined by colors) in panel columns for varying oxygen concentrations (x-axis) on different growth media (panel rows). We can see for the plastic media, the 'brown' module shows notable eigengene expression differences at 1% oxygen which are much more profound than the differences observed for the same oxygen concentration on the matrigel media. This suggests there are differences in the media that induce differences in co-expression in 1% oxygen. 
 
