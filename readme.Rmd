@@ -66,7 +66,7 @@ rm(dat)
 The  functions in this wrapper have many  parameters,  and  in  this  example  most  of  them  are  left  at  their  default  value.
 
 ### Step 3. Look at the modules with different dynamic tree cut heights.
-```{r, cache=TRUE, message=FALSE}
+```{r, cache=TRUE, message=FALSE, results='hide'}
 plotModulesCut(referenceDataset=net, outFile="plots/modClusterPlot.pdf")
 ```
 <img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/modClusterPlot.png" alt="Drawing" style="width: 600px;"/>
