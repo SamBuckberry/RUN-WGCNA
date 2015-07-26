@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  Wrapper scripts for running a Weighted-gene co-expression network analysis (WGCNA)
-date:   2015-07-25
+title:  Wrappers for running a co-expression network analysis (WGCNA)
+date:   2015-07-23
 ---
 
 
