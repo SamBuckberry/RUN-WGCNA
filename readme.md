@@ -72,7 +72,7 @@ The  functions in this wrapper have many  parameters,  and  in  this  example  m
 ```r
 plotModulesCut(referenceDataset=net, outFile="plots/modClusterPlot.pdf")
 ```
-<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/modClusterPlot.png" alt="Drawing" style="width: 600px;"/>
+<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/modClusterPlot.png" alt="Drawing" style="width: 900px;"/>
 
 Average linkage hierarchical clustering dendrogram of genes based on gene expression topological overlap. Modules of co-expressed genes were assigned colours which are represented in the horizontal bars below the dendrogram. The different rows of bars represent different dynamic tree cut heights. 
 
@@ -118,7 +118,7 @@ q <- qplot(data=melted, y=value, x=Oxygen, facets=Media~variable,
 q + scale_x_discrete(limits=c("1","5","20"))
 dev.off()
 ```
-![](https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/eigengenBoxplots.pdf)
+<img src="https://github.com/SamBuckberry/RUN-WGCNA/blob/master/plots/eigengenBoxplots.pdf" alt="Drawing" style="width: 900px;"/>
 
 These boxplots show the eigenene 'expression' (y-axis) for each module (defined by colors) in panel columns for varying oxygen concentrations (x-axis) on different growth media (panel rows). We can see for the plastic media, the 'brown' module shows notable eigengene expression differences at 1% oxygen which are much more profound than the differences observed for the same oxygen concentration on the matrigel media. This suggests there are differences in the media that induce differences in co-expression in 1% oxygen. 
 
